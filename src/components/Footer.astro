@@ -1,0 +1,14 @@
+---
+import { AUTHOR_EMAIL, AUTHOR_NAME } from '../consts';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+	<span>&copy; {year} {AUTHOR_NAME}</span>
+	<span>
+		<a href="/rss.xml">RSS</a>
+		&nbsp;·&nbsp;
+		<a href={`mailto:${AUTHOR_EMAIL}`}>Email</a>
+	</span>
+</footer>

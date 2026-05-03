@@ -1,0 +1,20 @@
+---
+import { SITE_TITLE } from '../consts';
+
+const path = Astro.url.pathname.replace(/\/$/, '');
+
+function isActive(prefix: string): boolean {
+	if (prefix === '/') return path === '' || path === '/';
+	return path === prefix || path.startsWith(prefix + '/');
+}
+---
+
+<header class="site-header">
+	<a href="/" class="brand">{SITE_TITLE}</a>
+	<nav>
+		<a href="/work" class={isActive('/work') ? 'active' : ''}>Work</a>
+		<a href="/travel" class={isActive('/travel') ? 'active' : ''}>Travel</a>
+		<a href="/opinions" class={isActive('/opinions') ? 'active' : ''}>Opinions</a>
+		<a href="/about" class={isActive('/about') ? 'active' : ''}>About</a>
+	</nav>
+</header>

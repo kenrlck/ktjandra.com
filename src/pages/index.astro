@@ -1,0 +1,98 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const work = (await getCollection('work', ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const travel = (await getCollection('travel', ({ data }) => !data.draft)).map((p) => ({
+	...p,
+	section: 'travel' as const,
+}));
+
+const opinions = (await getCollection('opinions', ({ data }) => !data.draft)).map((p) => ({
+	...p,
+	section: 'opinions' as const,
+}));
+
+const recentWork = work.slice(0, 3);
+const recentWriting = [...travel, ...opinions]
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 5);
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<h1>A roboticist who hasn't given up<br />on tennis and photography.</h1>
+				<p class="lede">Notes on all three, plus the opinions that don't fit anywhere else.</p>
+				<p>
+					By trade I'm a roboticist. I deploy robots to places humans prefer not to be.
+					The day job pays for the tennis and the photography.
+				</p>
+				<p>
+					Work posts will stay light &mdash; I'd rather not turn this into another LinkedIn
+					feed. If you want a peek at what the job actually looks like,
+					<a href="https://youtu.be/mLpXHS1iIbw" target="_blank" rel="noopener noreferrer"
+						>here's a day in the life</a
+					>. Travel and photography are looser territory. I'm on planes a lot for work and
+					sometimes by choice, and when I've remembered the battery and the SD card, I usually
+					come back with something worth posting.
+				</p>
+			</section>
+
+			{recentWork.length > 0 && (
+				<>
+					<p class="section-label">Selected work</p>
+					<ul class="post-list">
+						{recentWork.map((p) => (
+							<li>
+								<span class="post-date">
+									<FormattedDate date={p.data.pubDate} />
+								</span>
+								<div>
+									<div class="post-title">
+										<a href={`/work/${p.id}`}>{p.data.title}</a>
+									</div>
+									<p class="post-desc">{p.data.description}</p>
+								</div>
+							</li>
+						))}
+					</ul>
+				</>
+			)}
+
+			{recentWriting.length > 0 && (
+				<>
+					<p class="section-label">Recent writing</p>
+					<ul class="post-list">
+						{recentWriting.map((p) => (
+							<li>
+								<span class="post-date">
+									<FormattedDate date={p.data.pubDate} />
+								</span>
+								<div>
+									<div class="post-title">
+										<a href={`/${p.section}/${p.id}`}>{p.data.title}</a>
+									</div>
+									<p class="post-desc">{p.data.description}</p>
+								</div>
+							</li>
+						))}
+					</ul>
+				</>
+			)}
+		</main>
+		<Footer />
+	</body>
+</html>

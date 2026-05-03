@@ -1,0 +1,55 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { AUTHOR_EMAIL } from '../consts';
+---
+
+<html lang="en">
+	<head>
+		<BaseHead
+			title="About · Kenrick Tjandra"
+			description="A short introduction. Robotics engineer at Raise Robotics, occasional travel writer."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<h1>About</h1>
+				<p class="lede">
+					I'm Kenrick. I build robots, mostly the kind that pick things up and put them somewhere
+					else.
+				</p>
+			</section>
+
+			<p>
+				I work as a robotics engineer at <a href="https://raiserobotics.ai">Raise Robotics</a>, where
+				I focus on manipulation stacks &mdash; the stretch from a camera frame to a gripper closing
+				on the right thing in the right pose. Most of my time goes to perception, motion planning,
+				and the patient debugging that keeps real hardware honest.
+			</p>
+
+			<p>
+				Outside of that I write. Travel notes from places I keep going back to, occasional opinions
+				on engineering and the way it gets practiced. I prefer specific writing over the general
+				kind.
+			</p>
+
+			<p>
+				The fastest way to reach me is email: <a href={`mailto:${AUTHOR_EMAIL}`}>{AUTHOR_EMAIL}</a>.
+			</p>
+
+			<hr />
+
+			<p class="section-label">Colophon</p>
+			<p>
+				This site is built with <a href="https://astro.build">Astro</a>, hosted on Cloudflare
+				Pages, and set in <a href="https://fonts.google.com/specimen/Source+Serif+4">Source Serif
+				4</a> with <a href="https://rsms.me/inter/">Inter</a> for the chrome. The source is on
+				GitHub.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>

@@ -1,0 +1,381 @@
+/* Editorial, serif-forward stylesheet for ktjandra.com. */
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@400;500&display=swap');
+
+:root {
+	--font-serif: 'Source Serif 4', 'Iowan Old Style', Charter, Georgia, serif;
+	--font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+	--font-mono: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, monospace;
+
+	--color-ink: #1a1a1a;
+	--color-ink-soft: #4a4a4a;
+	--color-ink-faint: #8c8a82;
+	--color-paper: #fdfcf8;
+	--color-paper-warm: #f5f1e6;
+	--color-rule: #e3ddcb;
+	--color-accent: #8b3a1f;
+
+	--measure: 38rem;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color-ink: #ebe6d8;
+		--color-ink-soft: #b8b3a4;
+		--color-ink-faint: #767063;
+		--color-paper: #161513;
+		--color-paper-warm: #1f1d18;
+		--color-rule: #2c2924;
+		--color-accent: #d4815e;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: var(--font-serif);
+	font-size: 18px;
+	line-height: 1.65;
+	color: var(--color-ink);
+	background: var(--color-paper);
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	flex: 1;
+	width: 100%;
+	max-width: 720px;
+	margin: 0 auto;
+	padding: 2rem 1.5rem 4rem;
+}
+
+a {
+	color: var(--color-ink);
+	text-decoration: underline;
+	text-decoration-color: var(--color-rule);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+	transition: text-decoration-color 0.15s ease, color 0.15s ease;
+}
+
+a:hover {
+	text-decoration-color: var(--color-accent);
+	color: var(--color-accent);
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-serif);
+	font-weight: 500;
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	margin: 2.5rem 0 0.75rem;
+	color: var(--color-ink);
+}
+
+h1 {
+	font-size: 2.4rem;
+	line-height: 1.15;
+	margin-top: 0;
+}
+
+h2 {
+	font-size: 1.5rem;
+}
+
+h3 {
+	font-size: 1.2rem;
+}
+
+p {
+	margin: 0 0 1.25rem;
+}
+
+em {
+	font-style: italic;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid var(--color-rule);
+	margin: 2.5rem 0;
+}
+
+blockquote {
+	margin: 1.5rem 0;
+	padding-left: 1.25rem;
+	border-left: 2px solid var(--color-rule);
+	color: var(--color-ink-soft);
+	font-style: italic;
+}
+
+code {
+	font-family: var(--font-mono);
+	font-size: 0.88em;
+	background: var(--color-paper-warm);
+	padding: 0.1em 0.35em;
+	border-radius: 3px;
+}
+
+pre {
+	font-family: var(--font-mono);
+	background: var(--color-paper-warm);
+	padding: 1rem 1.25rem;
+	overflow-x: auto;
+	border-radius: 4px;
+	line-height: 1.55;
+	font-size: 0.9rem;
+}
+
+pre code {
+	background: transparent;
+	padding: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 2rem auto;
+	border-radius: 2px;
+}
+
+ul,
+ol {
+	padding-left: 1.5rem;
+	margin: 0 0 1.25rem;
+}
+
+li {
+	margin: 0.25rem 0;
+}
+
+/* Header */
+.site-header {
+	max-width: 720px;
+	margin: 0 auto;
+	padding: 2rem 1.5rem 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.site-header .brand {
+	font-family: var(--font-serif);
+	font-size: 1.05rem;
+	font-weight: 500;
+	text-decoration: none;
+	color: var(--color-ink);
+}
+
+.site-header .brand:hover {
+	color: var(--color-accent);
+}
+
+.site-header nav {
+	display: flex;
+	gap: 1.25rem;
+}
+
+.site-header nav a {
+	font-family: var(--font-sans);
+	font-size: 0.85rem;
+	color: var(--color-ink-soft);
+	text-decoration: none;
+}
+
+.site-header nav a:hover {
+	color: var(--color-accent);
+}
+
+.site-header nav a.active {
+	color: var(--color-ink);
+}
+
+/* Footer */
+.site-footer {
+	max-width: 720px;
+	margin: 4rem auto 0;
+	padding: 2rem 1.5rem;
+	border-top: 1px solid var(--color-rule);
+	font-family: var(--font-sans);
+	font-size: 0.78rem;
+	color: var(--color-ink-faint);
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.site-footer a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.site-footer a:hover {
+	color: var(--color-accent);
+}
+
+/* Hero block on homepage and section pages */
+.hero {
+	margin: 3rem 0 4rem;
+}
+
+.hero h1 {
+	font-size: 2.6rem;
+	font-weight: 500;
+	letter-spacing: -0.015em;
+	line-height: 1.12;
+	margin: 0 0 1rem;
+}
+
+.hero .lede {
+	font-size: 1.15rem;
+	color: var(--color-ink-soft);
+	max-width: 32rem;
+	margin: 0;
+}
+
+.hero .lede + p {
+	margin-top: 1.75rem;
+}
+
+.hero p {
+	max-width: 36rem;
+}
+
+/* Post lists */
+.section-label {
+	font-family: var(--font-sans);
+	font-size: 0.72rem;
+	letter-spacing: 0.08em;
+	color: var(--color-ink-faint);
+	margin: 3rem 0 0.75rem;
+	font-weight: 500;
+}
+
+.post-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.post-list li {
+	padding: 1rem 0;
+	border-bottom: 1px solid var(--color-rule);
+	display: grid;
+	grid-template-columns: 6.5rem 1fr;
+	gap: 1.25rem;
+	align-items: baseline;
+}
+
+.post-list li:last-child {
+	border-bottom: 0;
+}
+
+.post-list .post-date {
+	font-family: var(--font-sans);
+	font-size: 0.78rem;
+	color: var(--color-ink-faint);
+	letter-spacing: 0.02em;
+	white-space: nowrap;
+}
+
+.post-list .post-title {
+	font-family: var(--font-serif);
+	font-size: 1.1rem;
+	line-height: 1.35;
+}
+
+.post-list .post-title a {
+	text-decoration: none;
+	color: var(--color-ink);
+}
+
+.post-list .post-title a:hover {
+	color: var(--color-accent);
+}
+
+.post-list .post-desc {
+	font-size: 0.95rem;
+	color: var(--color-ink-soft);
+	margin: 0.35rem 0 0;
+	line-height: 1.5;
+}
+
+.empty-state {
+	font-family: var(--font-serif);
+	font-style: italic;
+	color: var(--color-ink-faint);
+	padding: 2rem 0;
+	font-size: 1rem;
+}
+
+/* Article header */
+article header {
+	margin: 1rem 0 2.5rem;
+}
+
+article header .post-meta {
+	font-family: var(--font-sans);
+	font-size: 0.78rem;
+	color: var(--color-ink-faint);
+	margin: 0 0 0.75rem;
+	letter-spacing: 0.02em;
+}
+
+article header .post-meta a {
+	color: inherit;
+	text-decoration: none;
+}
+
+article header .post-meta a:hover {
+	color: var(--color-accent);
+}
+
+article header h1 {
+	margin: 0;
+	font-size: 2.1rem;
+	letter-spacing: -0.015em;
+}
+
+article header .lede {
+	font-size: 1.1rem;
+	color: var(--color-ink-soft);
+	margin: 0.75rem 0 0;
+	line-height: 1.5;
+}
+
+@media (max-width: 540px) {
+	html {
+		font-size: 17px;
+	}
+
+	.post-list li {
+		grid-template-columns: 1fr;
+		gap: 0.25rem;
+	}
+
+	.hero h1 {
+		font-size: 2.1rem;
+	}
+
+	article header h1 {
+		font-size: 1.7rem;
+	}
+}
