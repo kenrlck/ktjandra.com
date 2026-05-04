@@ -9,7 +9,7 @@ import { AUTHOR_EMAIL } from '../consts';
 	<head>
 		<BaseHead
 			title="About · Kenrick Tjandra"
-			description="A short introduction. Robotics engineer at Raise Robotics, occasional travel writer."
+			description="About Kenrick Tjandra. Construction robotics, tennis, photography."
 		/>
 	</head>
 	<body>
@@ -18,36 +18,80 @@ import { AUTHOR_EMAIL } from '../consts';
 			<section class="hero">
 				<h1>About</h1>
 				<p class="lede">
-					I'm Kenrick. I build robots, mostly the kind that pick things up and put them somewhere
-					else.
+					I'm Kenrick. I work in construction robotics: the kind where a robot does the
+					heavy, dangerous part of a job and a tradesperson signs off.
 				</p>
 			</section>
 
+			<h2>What I'm interested in</h2>
 			<p>
-				I work as a robotics engineer at <a href="https://raiserobotics.ai">Raise Robotics</a>, where
-				I focus on manipulation stacks &mdash; the stretch from a camera frame to a gripper closing
-				on the right thing in the right pose. Most of my time goes to perception, motion planning,
-				and the patient debugging that keeps real hardware honest.
+				Construction sites are a hard environment for a robot. The weather rarely cooperates:
+				wind, rain, ice, temperatures that swing wide. Silica dust coats the LiDAR. The floor
+				shakes whenever a drill runs nearby, and the higher you are in the building, the more
+				it moves. Different subcontractors share the floor, each on their own schedule and
+				with their own opinion of the robot.
+			</p>
+			<p>
+				A lot of robotics gets built for a stable environment and a long runway of prep work.
+				Construction lets you have neither. That gap is the interesting part of the job. (The
+				trades on site have taught me how this work actually happens.)
 			</p>
 
+			<h2>How I got into construction robotics</h2>
 			<p>
-				Outside of that I write. Travel notes from places I keep going back to, occasional opinions
-				on engineering and the way it gets practiced. I prefer specific writing over the general
-				kind.
+				I grew up in Jakarta, in a family that mostly does engineering, so the wiring was
+				there early. The first time it really clicked was 2020, when my undergrad team at
+				Universitas Gadjah Mada won the CanSat Competition in Stephenville, Texas. That was
+				also my first time in the United States. After that came research at Carnegie Mellon
+				on 3D concrete spray printing, and then Raise.
+			</p>
+			<p>
+				(The closest I've come to actual disaster on the job was the night before our first
+				commercial deployment. We'd finished testing the robot in Santa Clara and were
+				packing it up for the next morning's pickup when it tipped over on the ramp. The
+				robot was fine; the deployment shipped on time. I think about that ramp a lot.)
 			</p>
 
+			<h2>How I got into tennis</h2>
 			<p>
-				The fastest way to reach me is email: <a href={`mailto:${AUTHOR_EMAIL}`}>{AUTHOR_EMAIL}</a>.
+				I played tennis before tennis was cool. My father trained me growing up, with a
+				stretch at Kemayoran Tennis Center in Jakarta. I made the UGM university team my
+				first year and, by my last, was barely hanging onto the engineering faculty's
+				intra-uni team &mdash; a rare athletic career that runs in reverse.
+			</p>
+			<p>
+				These days I just watch: WTA Finals, Cincinnati Open, Indian Wells, Austin Open.
+			</p>
+
+			<h2>How I got into photography</h2>
+			<p>
+				My first camera was a Fuji X-M1, picked up in college. I made the final stage of the
+				2019 Biak Munara Wampasi Festival photo competition with cameras borrowed between
+				sessions and no idea how to caption anything I shot. (I'm still working on the
+				captions.)
+			</p>
+			<p>
+				I travel a fair amount now and post most of what comes back to VSCO. Seattle, Belize,
+				and New Hampshire have all earned their own albums. The catch with the camera is
+				that it's just bulky enough that I keep sabotaging myself with it. Every other trip
+				I'll throw the body in a bag and forget the battery, the charger, or the SD card,
+				sometimes all three. My phone fills in. The phone takes pretty good pictures.
 			</p>
 
 			<hr />
 
+			<p class="section-label">Contact</p>
+			<p>
+				Email: <a href={`mailto:${AUTHOR_EMAIL}`}>{AUTHOR_EMAIL}</a><br />
+				Photography: <a href="https://vsco.co/kenrlck">vsco.co/kenrlck</a>
+			</p>
+
 			<p class="section-label">Colophon</p>
 			<p>
 				This site is built with <a href="https://astro.build">Astro</a>, hosted on Cloudflare
-				Pages, and set in <a href="https://fonts.google.com/specimen/Source+Serif+4">Source Serif
-				4</a> with <a href="https://rsms.me/inter/">Inter</a> for the chrome. The source is on
-				GitHub.
+				Pages, and set in <a href="https://fonts.google.com/specimen/Source+Serif+4">Source
+				Serif 4</a> with <a href="https://rsms.me/inter/">Inter</a> for the chrome. The
+				source is on GitHub.
 			</p>
 		</main>
 		<Footer />
