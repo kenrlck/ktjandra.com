@@ -1,0 +1,44 @@
+---
+/**
+ * Grid of photos for travel posts. Two or three images sit in a row on
+ * desktop, stack on mobile. One shared caption underneath.
+ *
+ * Usage in MDX:
+ *   <Photos caption="Two corners of the same market.">
+ *     <img src="/img/a.jpg" alt="Stall 1" />
+ *     <img src="/img/b.jpg" alt="Stall 2" />
+ *   </Photos>
+ *
+ * Or with imported assets, pass them via the `images` prop:
+ *   <Photos images={[{src: img1, alt: '...'}, {src: img2, alt: '...'}]} caption="..." />
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface ImageItem {
+	src: ImageMetadata | string;
+	alt: string;
+}
+
+interface Props {
+	images?: ImageItem[];
+	caption?: string;
+}
+
+const { images, caption } = Astro.props;
+---
+
+<figure class="photos">
+	<div class="photos__grid">
+		{images
+			? images.map((img) =>
+					typeof img.src === 'string' ? (
+						<img src={img.src} alt={img.alt} loading="lazy" />
+					) : (
+						<Image src={img.src} alt={img.alt} />
+					),
+				)
+			: <slot />}
+	</div>
+	{caption && <figcaption>{caption}</figcaption>}
+</figure>

@@ -15,7 +15,7 @@
 	--color-rule: #e3ddcb;
 	--color-accent: #8b3a1f;
 
-	--measure: 38rem;
+	--measure: 34rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -54,7 +54,7 @@ body {
 main {
 	flex: 1;
 	width: 100%;
-	max-width: 720px;
+	max-width: 640px;
 	margin: 0 auto;
 	padding: 2rem 1.5rem 4rem;
 }
@@ -164,7 +164,7 @@ li {
 
 /* Header */
 .site-header {
-	max-width: 720px;
+	max-width: 640px;
 	margin: 0 auto;
 	padding: 2rem 1.5rem 0;
 	width: 100%;
@@ -209,7 +209,7 @@ li {
 
 /* Footer */
 .site-footer {
-	max-width: 720px;
+	max-width: 640px;
 	margin: 4rem auto 0;
 	padding: 2rem 1.5rem;
 	border-top: 1px solid var(--color-rule);
@@ -326,6 +326,99 @@ li {
 	font-size: 1rem;
 }
 
+/* Asymmetric hero opener — opt in via frontmatter `heroLayout: split`. */
+.hero-split {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+	gap: 0;
+	width: 100vw;
+	margin-left: calc(50% - 50vw);
+	margin-bottom: 4rem;
+	min-height: min(85vh, 720px);
+	align-items: stretch;
+}
+
+.hero-split__text {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 3rem 3rem 3rem max(1.5rem, calc(50vw - 640px));
+}
+
+.hero-split__text .post-meta {
+	font-family: var(--font-sans);
+	font-size: 0.72rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--color-ink-faint);
+	margin: 0 0 1.25rem;
+}
+
+.hero-split__text .post-meta a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.hero-split__text h1 {
+	margin: 0 0 1rem;
+	font-size: 2.8rem;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	font-weight: 500;
+}
+
+.hero-split__text .lede {
+	font-size: 1.15rem;
+	line-height: 1.5;
+	color: var(--color-ink-soft);
+	margin: 0;
+	max-width: 28rem;
+}
+
+.hero-split__text .post-byline {
+	font-family: var(--font-sans);
+	font-size: 0.78rem;
+	color: var(--color-ink-faint);
+	margin: 1.75rem 0 0;
+	letter-spacing: 0.02em;
+}
+
+.hero-split__image {
+	position: relative;
+	overflow: hidden;
+	background: var(--color-paper-warm);
+}
+
+.hero-split__image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+	margin: 0;
+	border-radius: 0;
+}
+
+@media (max-width: 880px) {
+	.hero-split {
+		grid-template-columns: 1fr;
+		min-height: auto;
+		margin-bottom: 2.5rem;
+	}
+
+	.hero-split__image {
+		order: -1;
+		aspect-ratio: 16 / 10;
+	}
+
+	.hero-split__text {
+		padding: 2rem 1.5rem;
+	}
+
+	.hero-split__text h1 {
+		font-size: 2.1rem;
+	}
+}
+
 /* Article header */
 article header {
 	margin: 1rem 0 2.5rem;
@@ -359,6 +452,119 @@ article header .lede {
 	color: var(--color-ink-soft);
 	margin: 0.75rem 0 0;
 	line-height: 1.5;
+}
+
+/* Travel post photo blocks */
+figure.photo,
+figure.photos,
+figure.full-bleed {
+	margin: 2.5rem 0;
+}
+
+/* Default photos breathe slightly past the 720px column. */
+figure.photo,
+figure.photos {
+	width: calc(100% + 4rem);
+	margin-left: -2rem;
+	margin-right: -2rem;
+	max-width: calc(100vw - 2rem);
+}
+
+@media (max-width: 720px) {
+	figure.photo,
+	figure.photos {
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+figure.photo img,
+figure.photos img,
+figure.full-bleed img {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin: 0;
+	border-radius: 2px;
+}
+
+figure.photo--wide {
+	/* Break out ~80px on each side, capped by the viewport. */
+	width: calc(100% + 8rem);
+	margin-left: -4rem;
+	margin-right: -4rem;
+	max-width: calc(100vw - 2rem);
+}
+
+@media (max-width: 800px) {
+	figure.photo--wide {
+		width: 100%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+figure.photos .photos__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+	gap: 0.5rem;
+}
+
+figure.photos .photos__grid > * {
+	min-width: 0;
+}
+
+figure.photos .photos__grid img {
+	/* Natural aspect ratio. Don't crop the photo. */
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+	align-self: start;
+}
+
+@media (max-width: 540px) {
+	figure.photos .photos__grid {
+		grid-template-columns: 1fr;
+		gap: 0.75rem;
+	}
+}
+
+figure.full-bleed {
+	/* Escape the 720px column to the viewport edges. */
+	width: 100vw;
+	position: relative;
+	left: 50%;
+	right: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	margin-top: 3.5rem;
+	margin-bottom: 3.5rem;
+}
+
+figure.full-bleed img {
+	border-radius: 0;
+	max-height: 85vh;
+	object-fit: cover;
+}
+
+figure.full-bleed figcaption {
+	max-width: 640px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 1.5rem;
+}
+
+figure.photo figcaption,
+figure.photos figcaption,
+figure.full-bleed figcaption {
+	font-family: var(--font-sans);
+	font-size: 0.82rem;
+	color: var(--color-ink-faint);
+	margin-top: 0.6rem;
+	line-height: 1.5;
+	font-style: normal;
+	letter-spacing: 0.01em;
 }
 
 @media (max-width: 540px) {

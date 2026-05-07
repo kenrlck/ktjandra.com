@@ -9,6 +9,8 @@ const baseSchema = (image: () => any) =>
 		pubDate: z.coerce.date(),
 		updatedDate: z.coerce.date().optional(),
 		heroImage: z.optional(image()),
+		heroImageUrl: z.string().optional(),
+		heroLayout: z.enum(['standard', 'split']).optional(),
 		draft: z.boolean().default(false),
 		tags: z.array(z.string()).optional(),
 	});

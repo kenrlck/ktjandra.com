@@ -12,6 +12,8 @@ interface Props {
 	pubDate: Date;
 	updatedDate?: Date;
 	heroImage?: ImageMetadata;
+	heroImageUrl?: string;
+	heroLayout?: 'standard' | 'split';
 	section?: 'work' | 'travel' | 'opinions';
 	location?: string;
 }
@@ -22,7 +24,19 @@ const SECTION_LABELS: Record<string, string> = {
 	opinions: 'Opinions',
 };
 
-const { title, description, pubDate, updatedDate, heroImage, section, location } = Astro.props;
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	heroImage,
+	heroImageUrl,
+	heroLayout = 'standard',
+	section,
+	location,
+} = Astro.props;
+
+const useSplitHero = heroLayout === 'split' && (heroImage || heroImageUrl);
 ---
 
 <html lang="en">
@@ -31,9 +45,9 @@ const { title, description, pubDate, updatedDate, heroImage, section, location }
 	</head>
 	<body>
 		<Header />
-		<main>
-			<article>
-				<header>
+		{useSplitHero && (
+			<section class="hero-split" aria-label="Article header">
+				<div class="hero-split__text">
 					<p class="post-meta">
 						{section && (
 							<>
@@ -51,8 +65,42 @@ const { title, description, pubDate, updatedDate, heroImage, section, location }
 					</p>
 					<h1>{title}</h1>
 					{description && <p class="lede">{description}</p>}
-				</header>
-				{heroImage && <Image src={heroImage} alt="" width={1200} height={675} />}
+				</div>
+				<div class="hero-split__image">
+					{heroImage ? (
+						<Image src={heroImage} alt="" width={1600} height={2000} />
+					) : (
+						<img src={heroImageUrl} alt="" />
+					)}
+				</div>
+			</section>
+		)}
+		<main>
+			<article>
+				{!useSplitHero && (
+					<>
+						<header>
+							<p class="post-meta">
+								{section && (
+									<>
+										<a href={`/${section}`}>{SECTION_LABELS[section]}</a>
+										&nbsp;·&nbsp;
+									</>
+								)}
+								<FormattedDate date={pubDate} />
+								{location && (
+									<>
+										&nbsp;·&nbsp;
+										{location}
+									</>
+								)}
+							</p>
+							<h1>{title}</h1>
+							{description && <p class="lede">{description}</p>}
+						</header>
+						{heroImage && <Image src={heroImage} alt="" width={1200} height={675} />}
+					</>
+				)}
 				<slot />
 				{updatedDate && (
 					<p style="margin-top: 3rem; color: var(--color-ink-faint); font-size: 0.85rem; font-family: var(--font-sans);">
