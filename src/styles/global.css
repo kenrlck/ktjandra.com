@@ -259,6 +259,50 @@ li {
 	max-width: 36rem;
 }
 
+/* Profile variant — portrait left, title + lede right. Used on /about. */
+.hero--profile {
+	display: flex;
+	align-items: center;
+	gap: 1.75rem;
+}
+
+.hero--profile .hero__portrait {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+	flex-shrink: 0;
+	margin: 0;
+	background: var(--color-paper-warm);
+	filter: grayscale(1);
+}
+
+.hero--profile .hero__text {
+	flex: 1;
+	min-width: 0;
+}
+
+.hero--profile .hero__text h1 {
+	margin: 0 0 0.6rem;
+}
+
+.hero--profile .hero__text .lede {
+	margin: 0;
+}
+
+@media (max-width: 540px) {
+	.hero--profile {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1.25rem;
+	}
+
+	.hero--profile .hero__portrait {
+		width: 110px;
+		height: 110px;
+	}
+}
+
 /* Post lists */
 .section-label {
 	font-family: var(--font-sans);
