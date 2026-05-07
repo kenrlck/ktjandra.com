@@ -407,7 +407,11 @@ li {
 
 	.hero-split__image {
 		order: -1;
-		aspect-ratio: 16 / 10;
+	}
+
+	.hero-split__image img {
+		height: auto;
+		object-fit: unset;
 	}
 
 	.hero-split__text {
