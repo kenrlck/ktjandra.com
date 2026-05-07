@@ -334,7 +334,7 @@ li {
 	width: 100vw;
 	margin-left: calc(50% - 50vw);
 	margin-bottom: 4rem;
-	min-height: min(85vh, 720px);
+	min-height: min(75vh, 600px);
 	align-items: stretch;
 }
 
