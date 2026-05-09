@@ -1,0 +1,61 @@
+---
+interface PostData {
+	title: string;
+	description: string;
+	pubDate: Date;
+	location?: string;
+	heroImageUrl?: string;
+}
+
+interface Post {
+	id: string;
+	data: PostData;
+}
+
+interface Props {
+	posts: Post[];
+	section: 'work' | 'travel' | 'opinions';
+}
+
+const { posts, section } = Astro.props;
+const [featured, ...rest] = posts;
+const url = (id: string) => `/${section}/${id}/`;
+---
+
+{featured && (
+	<section class="post-grid">
+		<a class="post-grid__featured" href={url(featured.id)}>
+			{featured.data.heroImageUrl && (
+				<div class="post-grid__featured-image">
+					<img src={featured.data.heroImageUrl} alt="" loading="eager" />
+				</div>
+			)}
+			<div class="post-grid__featured-text">
+				{featured.data.location && (
+					<p class="post-grid__meta">{featured.data.location}</p>
+				)}
+				<h2 class="post-grid__featured-title">{featured.data.title}</h2>
+				<p class="post-grid__dek">{featured.data.description}</p>
+			</div>
+		</a>
+
+		{rest.length > 0 && (
+			<div class="post-grid__grid">
+				{rest.map((post) => (
+					<a class="post-grid__card" href={url(post.id)}>
+						{post.data.heroImageUrl && (
+							<div class="post-grid__card-image">
+								<img src={post.data.heroImageUrl} alt="" loading="lazy" />
+							</div>
+						)}
+						{post.data.location && (
+							<p class="post-grid__meta">{post.data.location}</p>
+						)}
+						<h3 class="post-grid__card-title">{post.data.title}</h3>
+						<p class="post-grid__dek">{post.data.description}</p>
+					</a>
+				))}
+			</div>
+		)}
+	</section>
+)}
