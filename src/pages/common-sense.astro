@@ -1,0 +1,64 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Common Sense · Kenrick Tjandra"
+			description="A running list of everyday situations where the obvious thing gets ignored, and what to do instead."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<h1>Common Sense</h1>
+				<p class="lede">
+					A running list of everyday situations where the obvious thing gets
+					ignored, and what to do instead.
+				</p>
+			</section>
+
+			<!-- newest entry goes here, directly below this line -->
+
+			<article class="cs-entry">
+				<h2 class="cs-entry__title">The left lane</h2>
+				<p>
+					Sitting in the left lane at the speed limit while cars stack up behind you
+					isn't holding the line, it's blocking the lane. The left lane is for
+					passing. When someone catches up to you, move right and let them through,
+					even if you think they're speeding. Don't be the T*sla on Autopilot or the
+					W*ymo.
+				</p>
+			</article>
+
+			<article class="cs-entry">
+				<h2 class="cs-entry__title">The middle seat</h2>
+				<p>
+					The middle seat is the worst of the three, so it gets both armrests to make
+					up for it. The window seat, boxed in for the flight, controls the shade. The
+					aisle seat gives up the armrests and the shade but gets the legroom and the
+					easiest way out. If you're in the middle, the armrests are yours, but keep
+					your arms inside them and off your neighbors' space. If you don't fit,
+					that's first on the airline for selling seats this tight. But if they won't
+					give you more room, be considerate and buy a second seat. Either way, it
+					isn't your neighbor's space to take.
+				</p>
+			</article>
+
+			<article class="cs-entry">
+				<h2 class="cs-entry__title">Waiting for a tennis court</h2>
+				<p>
+					Form one line for all the courts, not a separate clump in front of each
+					one. The first person in line takes the first court that opens, then the
+					next person, and so on. It works like a line for a busy restroom: you wait
+					at the front, and the next free stall is yours.
+				</p>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

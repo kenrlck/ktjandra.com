@@ -792,3 +792,22 @@ figure.full-bleed figcaption {
 		font-size: 1.7rem;
 	}
 }
+
+/* Common Sense — running list of titled entries on /common-sense */
+.cs-entry {
+	padding: 1.75rem 0;
+	border-bottom: 1px solid var(--color-rule);
+}
+
+.cs-entry:last-child {
+	border-bottom: 0;
+}
+
+.cs-entry__title {
+	font-family: var(--font-serif);
+	font-size: 1.35rem;
+	font-weight: 500;
+	letter-spacing: -0.01em;
+	line-height: 1.25;
+	margin: 0 0 0.75rem;
+}
