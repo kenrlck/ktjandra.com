@@ -9,10 +9,10 @@ This site is new. I built it the way you'd expect a robotics engineer to build a
 
 The plan is three sections.
 
-**Work** is for project case studies. I'm a robotics engineer at Raise Robotics, where I work on manipulation stacks &mdash; perception, motion planning, and the patient business of getting hardware to do what it's told. The case studies will be specific enough to be useful and vague enough to be allowed.
+**Work** is for project case studies. I work in construction robotics at Raise Robotics, where a robot does the heavy, dangerous part of a job and a tradesperson signs off. The case studies will be specific enough to be useful and vague enough to be allowed.
 
-**Travel** is the part I'm most excited about. I've been writing travel notes in scattered docs for a few years. They're going to find a home here, slowly.
+**Travel** is the part I'm most excited about. Most of my good photos have only gone to friends on a private Instagram. The ones here are the ones I wanted to make public, with the stories behind them, since a photo only tells part of it.
 
-**Opinions** is for everything else. Engineering takes, things I've changed my mind about, the occasional rant about how we read papers.
+**Opinions** is for everything else. Engineering takes, things I've changed my mind about, the occasional rant.
 
 If you're here from somewhere I posted, hello. If you're here because you found a 404, sorry &mdash; I'll get to it.
