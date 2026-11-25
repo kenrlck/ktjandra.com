@@ -7,15 +7,35 @@ function isActive(prefix: string): boolean {
 	if (prefix === '/') return path === '' || path === '/';
 	return path === prefix || path.startsWith(prefix + '/');
 }
+
+const othersActive = isActive('/work') || isActive('/opinions');
 ---
 
 <header class="site-header">
 	<a href="/" class="brand">{SITE_TITLE}</a>
 	<nav>
-		<a href="/work" class={isActive('/work') ? 'active' : ''}>Work</a>
 		<a href="/travel" class={isActive('/travel') ? 'active' : ''}>Travel</a>
-		<a href="/opinions" class={isActive('/opinions') ? 'active' : ''}>Opinions</a>
 		<a href="/common-sense" class={isActive('/common-sense') ? 'active' : ''}>Common Sense</a>
 		<a href="/about" class={isActive('/about') ? 'active' : ''}>About</a>
+		<details class="nav-more">
+			<summary class={othersActive ? 'active' : ''}>Others</summary>
+			<div class="nav-more__menu">
+				<a href="/work" class={isActive('/work') ? 'active' : ''}>Work</a>
+				<a href="/opinions" class={isActive('/opinions') ? 'active' : ''}>Opinions</a>
+			</div>
+		</details>
 	</nav>
 </header>
+
+<script>
+	document.addEventListener('click', (e) => {
+		document.querySelectorAll<HTMLDetailsElement>('details.nav-more[open]').forEach((d) => {
+			if (!d.contains(e.target as Node)) d.open = false;
+		});
+	});
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape') {
+			document.querySelectorAll<HTMLDetailsElement>('details.nav-more[open]').forEach((d) => (d.open = false));
+		}
+	});
+</script>
