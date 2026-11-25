@@ -601,6 +601,7 @@ li {
 	gap: 0;
 	width: 100vw;
 	margin-left: calc(50% - 50vw);
+	margin-top: 2.5rem;
 	margin-bottom: 4rem;
 	min-height: min(75vh, 600px);
 	align-items: stretch;
@@ -610,7 +611,8 @@ li {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 3rem 3rem 3rem max(1.5rem, calc(50vw - 640px));
+	padding: 3rem 3rem 3rem max(1.5rem, calc(50vw - 560px));
+	background: var(--color-paper-warm);
 }
 
 .hero-split__text .post-meta {
@@ -670,6 +672,7 @@ li {
 	.hero-split {
 		grid-template-columns: 1fr;
 		min-height: auto;
+		margin-top: 1.5rem;
 		margin-bottom: 2.5rem;
 	}
 
